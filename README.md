@@ -21,7 +21,7 @@ There are two ways to execute the application.
 I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven / Node.js / Angular.
 
 #### Using Console
-Prerequisites:
+**Prerequisites:**
 - Ubuntu or OS X (haven't tested under Windows)
 - Java JDK 1.8+
 - Maven 3+
@@ -30,7 +30,7 @@ Prerequisites:
 **BACK**
 - 0: Open a new console. Go to directory ```com.mimacom.techev/back```
 - 1: ```mvn clean install && mvn spring-boot:run```
-- 2: curl to http://localhost:8080 to test: ```curl http://localhost:8080/task```
+- 2: curl to http://localhost:8080 to test: ```curl http://localhost:8080/task``` (or use Postman)
 
 **FRONT**
 - 0: Open a new console. Go to directory ```com.mimacom.techev/front```
@@ -43,10 +43,18 @@ Something as following should be shown:
 
 #### Using Docker
 
-- ```docker build -t mimacom_back .```
-- ```docker run mimacom_back```
-- ```docker-compose build```
-- ```docker-compose up```
+There is a bash script to execute the application out of the box. Only needed to execute:
+
+```./startWithDocker.sh```
+
+This will create two containers, using docker-compose, to have the back and the front. No Java, Maven, Node.JS,... 
+needed to make the application work.
+
+The only handicap is that each time it's executed it will download all dependencies, build and execute. So no suitable 
+at all for a dev environment.
+
+The biggest different in using it is that, as ```npm build``` is done, instead of ```ng serve``` then the port 
+by default is 80, so it's possible to access the app at: http://localhost/
 
 ## Original exercise text
 La aplicación debe permitir tanto la:
