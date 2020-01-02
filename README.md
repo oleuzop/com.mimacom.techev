@@ -1,12 +1,45 @@
-# Getting Started
+# Mimacom.com Technical Evaluation
 ## Author:
-
 **Tomás GARCÍA-POZUELO**
 
 January 2nd, 2020
 Mimacom Technical Evaluation
 
-### Original exercise text
+## Getting Started
+#### Introduction
+This is the exersice proposed by mimacom for technical evaluation of Tomás GARCÍA-POZUELO.
+Even if the problem was to create a REST API I've done also a simple front webpage with Angular & Material to show directly a simple use of the API without using curl/postman/insomnia.
+
+#### How to run
+First of all, its needed to clone the repository.
+```git clone https://github.com/oleuzop/com.mimacom.techev.git```
+
+There are two ways to execute the application.
+With console (or/plus IDE of your choice) or using Docker. I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven / Node.js / Angular.
+
+##### Using Console
+Prerequisites:
+- Ubuntu or OS X (haven't tested under Windows)
+- Java JDK 1.8+
+- Maven 3+
+- Node.js
+
+BACK
+- 0: Open a new console. Go to directory ```com.mimacom.techev/back```
+- 1: ```mvn clean install && mvn spring-boot:run```
+
+FRONT
+- 0: Open a new console. Go to directory ```com.mimacom.techev/front```
+- 1: ```bla bla bla```
+
+##### Using Docker
+
+- ```docker build -t mimacom_back .```
+- ```docker run mimacom_back```
+- ```docker-compose build```
+- ```docker-compose up```
+
+## Original exercise text
 La aplicación debe permitir tanto la:
 * creación de tareas nuevas
 * como el borrado
@@ -21,7 +54,7 @@ que se va a construir el proyecto (Maven, Gradle, Ant, etc).
 Como entregable final, se facilitará el acceso al código fuente original, en el formato elegido por
 el candidato, así como los pasos a seguir para poner la aplicación en marcha.
 
-### REST API design
+## REST API design
 * **[POST]** Create new task. Body => New task to be created.
 * **[DELETE]** Delete new task. Path => Id of the task to be deleted.
 * **[PUT]** Edit existing task 
@@ -30,32 +63,38 @@ el candidato, así como los pasos a seguir para poner la aplicación en marcha.
 Extra Endpoints
 * **[GET]** List all tasks 
 
+## How it has been done
+
 ![Spring Initalizr](static/spring_initalizr.png "Title")
 
-### Used tools / frameworks
+## Used tools / frameworks
+### Back
 * IntelliJ IDEA 2019.3 Community Edition (https://www.jetbrains.com/idea/)
-* Visual Studio Code 1.41.1
 * Spring Boot / Spring Data / Spring Security / Spring Web
 * MapStruts (https://mapstruct.org/)
 * H2 Database (https://www.h2database.com/html/main.html)
+* Mockito
+* GitHub
 
-### How to run
-- 1: ```mvn clean install```
-- 2: ```mvn spring-boot:run```
-- ```docker build -t mimacom_back .```
-- ```docker run mimacom_back```
-- ```docker-compose build```
-- ```docker-compose up```
+### Front
+* Visual Studio Code 1.41.1
+* Angular CLI
+* Material
+* GitHub
 
-### TODO
+### DevOps
+* Docker version 19.03.5
+
+### TODO (future work)
+* Swagger
+* Sonarqube
+* Jenkins (.Jenkinsfile)
+
 * Check Unit Tests
 * Check JavaDoc
 * Spring Security
 * Rework ExceptionHandler
 * Docker
-* Swagger
-* Sonarqube
-* Jenkins (.Jenkinsfile)
 
 ### Reference Documentation
 For further reference, please consider the following sections:
