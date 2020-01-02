@@ -15,7 +15,10 @@ First of all, its needed to clone the repository.
 ```git clone https://github.com/oleuzop/com.mimacom.techev.git```
 
 There are two ways to execute the application.
-With console (or/plus IDE of your choice) or using Docker. I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven / Node.js / Angular.
+* With console (or/plus IDE of your choice)
+* or using Docker.
+
+I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven / Node.js / Angular.
 
 ##### Using Console
 Prerequisites:
@@ -27,10 +30,16 @@ Prerequisites:
 BACK
 - 0: Open a new console. Go to directory ```com.mimacom.techev/back```
 - 1: ```mvn clean install && mvn spring-boot:run```
+- 2: curl to http://localhost:8080 to test: ```curl http://localhost:8080/task```
 
 FRONT
 - 0: Open a new console. Go to directory ```com.mimacom.techev/front```
-- 1: ```bla bla bla```
+- 1: ```npm install && ng serve```
+- 2: Go to http://localhost:4200/
+
+Something as following should be shown:
+
+![Web](static/web.png "Title")
 
 ##### Using Docker
 
@@ -68,13 +77,13 @@ Extra Endpoints
 ![Spring Initalizr](static/spring_initalizr.png "Title")
 
 ## Used tools / frameworks
+
 ### Back
 * IntelliJ IDEA 2019.3 Community Edition (https://www.jetbrains.com/idea/)
 * Spring Boot / Spring Data / Spring Security / Spring Web
 * MapStruts (https://mapstruct.org/)
 * H2 Database (https://www.h2database.com/html/main.html)
 * Mockito
-* GitHub
 
 ### Front
 * Visual Studio Code 1.41.1
@@ -84,8 +93,9 @@ Extra Endpoints
 
 ### DevOps
 * Docker version 19.03.5
+* GitHub (repo)
 
-### TODO (future work)
+### TODO (future work I'd would liked to have done)
 * Swagger
 * Sonarqube
 * Jenkins (.Jenkinsfile)
