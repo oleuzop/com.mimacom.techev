@@ -1,6 +1,6 @@
 FROM node:alpine AS builder
 
-WORKDIR /app
+WORKDIR /front
 
 COPY . .
 
@@ -8,4 +8,4 @@ RUN npm install && npm run build
 
 FROM nginx:alpine
 
-COPY --from=builder app/dist/* /usr/share/nginx/html/
+COPY --from=builder front/dist/* /usr/share/nginx/html/
