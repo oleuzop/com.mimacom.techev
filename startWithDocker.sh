@@ -7,15 +7,9 @@
 #===================================================='
 
 echo '-==================================================-'
-echo '-= CLEAN BACK & FRONT                             =-'
+echo '-= LAUNCH WITH DOCKER                             =-'
 echo '-==================================================-'
 
-cd back
-mvn clean
-cd ..
+docker-compose up --build
 
-cd front
-rm -rf dist/*
-rm -rf node_modules/*
-cd ..
 
