@@ -8,8 +8,10 @@ import { ApiService } from '../api.service';
 })
 
 export class HomeComponent implements OnInit {
-  tasks = [];
 
+  displayedColumns: string[] = ['id', 'title', 'description', 'finished'];
+  tasks = [];
+  
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {

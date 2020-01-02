@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatTableModule } from '@angular/material'  
 
 @NgModule({
 declarations: [
@@ -24,7 +25,7 @@ MatToolbarModule,
 MatIconModule,
 MatButtonModule,
 MatCardModule,
-MatProgressSpinnerModule
+MatTableModule
 ],
 providers: [],
 bootstrap: [AppComponent]
