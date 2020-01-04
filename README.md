@@ -81,8 +81,37 @@ Extra Endpoints
 * **[GET]** List all tasks 
 
 ## How it has been done
+Developed under Ubuntu, also tested under OS X.
+
+Once the REST API is clear then, first thing is to create a Spring Boot project using Spring Initalizr
+with the following dependencies:
+
+* Spring Web
+* Spring Security
+* Spring Data JPA
+* Spring Boot Devtools
 
 ![Spring Initalizr](static/spring_initalizr.png "Title")
+
+One the project has been downloaded, decompressed and loaded in the programming IDE (IntelliJ IDEA) then
+I proceed to create a very basic Contoller / Services / DAL layers creating packages to have a well 
+encapsulated application.
+
+As I'm going to follow the TDD methodology for developing the application I first write a few tests for the
+very basic controllers and services. I'm not going to write tests for the Data Abstraction Layer since I'm
+using Spring Data JPA, so, I assume they have already tested well enough and that there are not mayor bugs.
+
+Once the tests are written for the first REST API service (list all tasks) I develop the service and the controller
+layers. Since it's an easy tasks, not many mistakes are done.
+
+Then I do a little refactor (of course, since I'm following TDD, so baby step => refactor) and I continue with
+the other REST APIs, of course, following the same methodology.
+
+As a good practice I'm always returning a DTO for each REST endpoint. I'm not returning the model entity (that with
+Spring Web would be automatically converted to JSON) because this, always, brings problems!
+
+For doing the mapping between the model entity and the DTO I'm using MapStruts, a framework that automatically generate
+the mappings between the different classes with a few annotations. 
 
 ## Used tools / frameworks
 
@@ -108,6 +137,7 @@ Extra Endpoints
 * Swagger
 * Sonarqube
 * Jenkins (.Jenkinsfile)
+* Add pagination to the list REST service, and to the Angular Material table.
 
 * Check Unit Tests
 * Check JavaDoc
