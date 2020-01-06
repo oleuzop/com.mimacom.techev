@@ -148,12 +148,12 @@ I'm using Postman
 * Jenkins (.Jenkinsfile)
 * Add pagination to the list REST service, and to the Angular Material table.
 
-* Check H2-Database Console
 * Check Unit Tests
 * Check JavaDoc
 * Spring Security
 * Rework ExceptionHandler
 * Docker
+* Check H2-Database Console
 
 ### Reference Documentation
 For further reference, please consider the following sections:
