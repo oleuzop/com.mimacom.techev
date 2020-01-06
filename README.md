@@ -94,7 +94,7 @@ with the following dependencies:
 ![Spring Initalizr](static/spring_initalizr.png "Title")
 
 One the project has been downloaded, decompressed and loaded in the programming IDE (IntelliJ IDEA) then
-I proceed to create a very basic Contoller / Services / DAL layers creating packages to have a well 
+I proceed to create a very basic Controller / Services / DAL layers creating packages to have a well 
 encapsulated application.
 
 As I'm going to follow the TDD methodology for developing the application I first write a few tests for the
@@ -111,7 +111,16 @@ As a good practice I'm always returning a DTO for each REST endpoint. I'm not re
 Spring Web would be automatically converted to JSON) because this, always, brings problems!
 
 For doing the mapping between the model entity and the DTO I'm using MapStruts, a framework that automatically generate
-the mappings between the different classes with a few annotations. 
+the mappings between the different classes with a few annotations.
+
+For adding the data I use a memory database (so no Postgres/Maria DB/... needed to be installed) and I create a data.sql
+with data to be loaded at runtime.
+
+Also, I add in the Spring Security Config all needed to be able to access to the H2 console interface
+(http://localhost:8080/H2-console)
+
+So now that we have our REST endpoint plus a database with data we can do queries using any REST client.
+I'm using Postman
 
 ## Used tools / frameworks
 
@@ -139,6 +148,7 @@ the mappings between the different classes with a few annotations.
 * Jenkins (.Jenkinsfile)
 * Add pagination to the list REST service, and to the Angular Material table.
 
+* Check H2-Database Console
 * Check Unit Tests
 * Check JavaDoc
 * Spring Security
