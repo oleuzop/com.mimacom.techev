@@ -18,7 +18,7 @@ There are two ways to execute the application.
 * With console (or/plus IDE of your choice)
 * or using Docker.
 
-I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven / Node.js / Angular.
+I recommend using Docker so it won't be necessary to install Java JDK / Maven / Node.js / Angular.
 
 #### Using Console
 **Prerequisites:**
@@ -30,7 +30,7 @@ I recommend using Docker so it won't be necessary to install Java 8 JDK / Maven 
 **BACK**
 - 0: Open a new console. Go to directory ```com.mimacom.techev/back```
 - 1: ```mvn clean install && mvn spring-boot:run```
-- 2: curl to http://localhost:8080 to test: ```curl http://localhost:8080/task``` (or use Postman)
+- 2: curl to test: ```curl http://localhost:8080/task``` (or use Postman)
 
 **FRONT**
 - 0: Open a new console. Go to directory ```com.mimacom.techev/front```
@@ -120,7 +120,12 @@ Also, I add in the Spring Security Config all needed to be able to access to the
 (http://localhost:8080/H2-console)
 
 So now that we have our REST endpoint plus a database with data we can do queries using any REST client.
-I'm using Postman
+I'm using Postman and/or curl.
+
+Then, after a few details more, I do a very simple front application to show the data with Angular CLI and Material.
+
+After everything is set up I create DockerFile(s) for the front and back, so it's possible to build the project with
+nothing but Docker installed in the machine, not even Java.
 
 ## Used tools / frameworks
 
@@ -136,24 +141,17 @@ I'm using Postman
 * Visual Studio Code 1.41.1
 * Angular CLI
 * Material
-* GitHub
 
 ### DevOps
 * Docker version 19.03.5
 * GitHub (repo)
+* Portainer, to easily manage Docker.
 
 ### TODO (future work I'd would liked to have done)
 * Swagger
 * Sonarqube
 * Jenkins (.Jenkinsfile)
 * Add pagination to the list REST service, and to the Angular Material table.
-
-* Check Unit Tests
-* Check JavaDoc
-* Spring Security
-* Rework ExceptionHandler
-* Docker
-* Check H2-Database Console
 
 ### Reference Documentation
 For further reference, please consider the following sections:
