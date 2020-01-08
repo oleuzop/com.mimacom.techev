@@ -8,12 +8,15 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 @EnableAutoConfiguration
-@Configuration
 @EntityScan(basePackageClasses = _Model.class)
 @ComponentScan(basePackageClasses = {_Service.class, _Controller.class})
 @EnableJpaRepositories(basePackageClasses = _Repository.class)
+@Configuration
+@Import({WebConfig.class, SecurityConfiguration.class})
 public class BootConfig {
 }

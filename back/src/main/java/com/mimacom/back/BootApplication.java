@@ -1,6 +1,6 @@
 package com.mimacom.back;
 
-import com.mimacom.back.config.WebConfig;
+import com.mimacom.back.config.BootConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(WebConfig.class);
+		SpringApplication springApplication = new SpringApplication(BootConfig.class);
 		springApplication.setAdditionalProfiles("h2");
 		springApplication.run();
 	}
