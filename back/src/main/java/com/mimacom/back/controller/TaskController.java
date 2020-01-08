@@ -4,16 +4,26 @@ import com.mimacom.back.dto.TaskDto;
 import com.mimacom.back.dto.mappers.TaskMapper;
 import com.mimacom.back.model.Task;
 import com.mimacom.back.service.TaskService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
+
+import javax.inject.Inject;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/task")
 public class TaskController {
 
-    private @Autowired
-    TaskService taskService;
+    private TaskService taskService;
+
+    @Inject
+    public TaskController(TaskService taskService) {
+        Assert.notNull(taskService, "TaskService must not be null!");
+        this.taskService = taskService;
+    }
 
     /**
      * findAll
@@ -23,6 +33,18 @@ public class TaskController {
     @GetMapping
     public List<TaskDto> findAll() {
         return TaskMapper.INSTANCE.taskToDtoList(taskService.findAll());
+    }
+
+    @GetMapping(params = { "page", "size" })
+    public List<TaskDto> findAllPaged(@RequestParam("page") int page,
+                                      @RequestParam("size") int size) {
+
+        Page<Task> resultPage = taskService.findAllPaged(page, size);
+        if (page > resultPage.getTotalPages()) {
+            throw new EntityNotFoundException();
+        }
+
+        return TaskMapper.INSTANCE.taskToDtoList(resultPage.getContent());
     }
 
     /**
