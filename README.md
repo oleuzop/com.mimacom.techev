@@ -151,6 +151,8 @@ nothing but Docker installed in the machine, not even Java.
 * Swagger
 * Sonarqube
 * Jenkins (.Jenkinsfile)
+
+### DONE
 * Add pagination to the list REST service, and to the Angular Material table.
 
 ### Reference Documentation
