@@ -11,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -45,6 +44,14 @@ class TaskControllerTests {
 	@Test
 	void test_get_id_401() throws Exception {
 		this.mockMvc.perform(get("/task/1234567890")).andExpect(status().is4xxClientError());
+	}
+
+	@Test
+	void test_get_paginated_ok() throws Exception {
+		this.mockMvc.perform(get("/task?page=0&size=1"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("[{\"id\":100,\"finished\":false,\"title\":" +
+						"\"Test\",\"description\":\"Test task\"}]"));
 	}
 
 	@Test
