@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,16 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'title', 'description', 'finished'];
-  tasks = [];
+  tasks = new MatTableDataSource<any>();
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {}  
 
   ngOnInit() {
     this.apiService.get().subscribe((data: any[])=>{
       console.log(data);
-      this.tasks = data;
+      this.tasks.data = data;
+      this.tasks.paginator = this.paginator;
     })
   }
 }
